@@ -93,9 +93,51 @@ var elvis = new Person("Elvis",0)
 
 ```
 
+### 6> Manipulating the Document Object Model
+> The Document Object Model is part of the Browser Object Model and is hierarchal in it's form. Each tag which is there in the html which we write is part of the DOM or Document Object Model. 
+
+> All parts of HTML can be accessed through the DOM as the html we write lives in the document section ofthe Browser Object Model or BOM. 
+
+> Some examples of the same are below.
+```js
+console.log(document.body);
+console.log(document.title);
+console.log(document.URL);
+console.log(document.getElementByID("some-ID"))
+console.log(document.getElementsByClassName("classname"))
+console.log(document.getElementByTagName("tagname"))
+console.log(document.querySelector(".main-nav a"))
+```
+
+> Now if we have to add an element to the Document Object Model. We would think of making changes directly to the static elements like the ones given in the above exam. Well, there is nothing that we are programmatically doing to make any difference to the existing codebase. What we can do instead is follow the steps below to start of programmaticially making changes to the DOM.
+
+* Create the Element
+* Create the Text Node that goes inside the Element
+* Add the Text Node to the Element 
+* Add the Element to the DOM tree
+
+> Functions we shall use to do the bidding.
+```js
+.createElement()
+.createTextNode()
+.appendChild()
+```
+
+### 7> Event Handling
+
+> Anything that the user does to interact with the browser can be taken as an event. Event handling is done in the following simple steps.
+
+* Identify the DOM node the interactive behavior will be atached to.
+* Identify the event you want to detect.
+* Create the function that is triggered when the even fires.
+
+> There are two kinds of events, Browser Level Events and DOM Level Events.
+
+
 ## Things to Cover
 #### Closures [1](https://medium.com/dailyjs/how-i-automated-my-job-with-node-js-94bf4e423017)
 #### DOM [1](https://medium.com/re-dom/master-the-dom-bc1a2a06089b)
 #### Typescript+Babel [1](https://medium.com/dailyjs/typescript-babel-ce24f724398?source=collection_home---4------1---------------------)
 #### React+socket.io [1](https://medium.com/dailyjs/combining-react-with-socket-io-for-real-time-goodness-d26168429a34)
 #### XSS [1](https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0), [2](https://medium.com/@taylorotwell/js-frameworks-server-side-rendering-and-xss-722805009892), [3](https://medium.com/@marin_m/how-i-found-a-5-000-google-maps-xss-by-fiddling-with-protobuf-963ee0d9caff)
+#### Security Concepts [Introduction](https://medium.freecodecamp.org/a-quick-introduction-to-web-security-f90beaf4dd41)
