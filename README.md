@@ -133,6 +133,13 @@ console.log(document.querySelector(".main-nav a"))
 
 > There are two kinds of events, Browser Level Events and DOM Level Events.
 
+### 8> Starting with NodeJS
+
+> NodeJS is the most popular Javascript Framework which is rocking the Javascript World and is capable of brilliant server side programming. We are going to start understadning NodeJS while understandign Javascript as well as Node will provide us with abstractions closer to Systems Programming which will allow us to understand Server Side Programming paradigms better.
+
+> We start with Node trying to understand what all ability does node provide and how should we approach thinking about it. To start off we are looking at some initial programming constructs which Node offers and from the get go we can tell that Node is meant for Server Side Programming and not Web Programming, but we can use it for the same as well.
+
+
 
 ## Things to Cover
 #### Closures [1](https://medium.com/dailyjs/how-i-automated-my-job-with-node-js-94bf4e423017)
