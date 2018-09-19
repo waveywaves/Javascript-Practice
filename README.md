@@ -184,11 +184,22 @@ console.log("3 seconds have passed");
 
 > Events in Node can be handled asyncronously and are initiated asyncronously as well. Now, this is brilliant as we can tell as there are alot of possibilities with this mechanisms. It is basically Node's way of implementing the PubSub Model (Publisher-Subscriber Model). For using the EventEmitter which we can use to define and invoke events, we hav eto import the `events` library.
 
+### 11> Child Processes using Node
+
+> Child Processes can be invoked using `exec` and `spawn` function which are very similar to the system calls used by the operating system. To use these we have to import `child_process` as follows.
+
+```js
+child_process = require("child_process");
+child_process.exec()
+child_process.spawn()
+```
+
+Using the above method we should be able to exec and spawn child processes. Interestingly as a spawned child process has parts which are inherited by the EventEmitter, we can do certain stuff once we receive output to stdout or something along those lines. We can also write out own events on the EventEmitter to perform certain tasks.
+
 
 ## Things to Cover
 #### Closures [1](https://medium.com/dailyjs/how-i-automated-my-job-with-node-js-94bf4e423017)
 #### DOM [1](https://medium.com/re-dom/master-the-dom-bc1a2a06089b)
-#### Typescript+Babel [1](https://medium.com/dailyjs/typescript-babel-ce24f724398?source=collection_home---4------1---------------------)
 #### React+socket.io [1](https://medium.com/dailyjs/combining-react-with-socket-io-for-real-time-goodness-d26168429a34)
 #### XSS [1](https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0), [2](https://medium.com/@taylorotwell/js-frameworks-server-side-rendering-and-xss-722805009892), [3](https://medium.com/@marin_m/how-i-found-a-5-000-google-maps-xss-by-fiddling-with-protobuf-963ee0d9caff)
 #### Security Concepts [Introduction](https://medium.freecodecamp.org/a-quick-introduction-to-web-security-f90beaf4dd41)
