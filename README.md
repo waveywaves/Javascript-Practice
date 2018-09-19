@@ -176,10 +176,13 @@ setTimeout(function(){
     clearInterval(interval);
 },3000); // Function which will timeout after 3 seconds 
 
-conosle.log("3 seconds have passed");
+console.log("3 seconds have passed");
 ```
 > The above piece of code will run with 6 lines of output saying that 0.5 seconds have passed.
 
+### 10> Events in Node
+
+> Events in Node can be handled asyncronously and are initiated asyncronously as well. Now, this is brilliant as we can tell as there are alot of possibilities with this mechanisms. It is basically Node's way of implementing the PubSub Model (Publisher-Subscriber Model). For using the EventEmitter which we can use to define and invoke events, we hav eto import the `events` library.
 
 
 ## Things to Cover
