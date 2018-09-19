@@ -137,7 +137,48 @@ console.log(document.querySelector(".main-nav a"))
 
 > NodeJS is the most popular Javascript Framework which is rocking the Javascript World and is capable of brilliant server side programming. We are going to start understadning NodeJS while understandign Javascript as well as Node will provide us with abstractions closer to Systems Programming which will allow us to understand Server Side Programming paradigms better.
 
-> We start with Node trying to understand what all ability does node provide and how should we approach thinking about it. To start off we are looking at some initial programming constructs which Node offers and from the get go we can tell that Node is meant for Server Side Programming and not Web Programming, but we can use it for the same as well.
+> We start with Node trying to understand what all ability does node provide and how should we approach thinking about it. To start off we are looking at some initial programming constructs which Node offers and from the get go we can tell that Node is meant for Serve(r Side Programming and not Web Programming, but we can use it for the same as well.
+
+### 9> Node Core and Modules
+
+> As we start off with Node. One of the very first things we have to understand are how we can use abstracted processes.
+
+```js
+process.stdin.on("data",function(data){
+    process.stdout.write(data);
+    process.exit()
+});
+```
+
+> In the above code you can see, we are starting the process and taking in the input from standard input and then displaying using the standard output. Then we are also exiting the process manually as otherwise the process will continue running and then it will keep writing whatever we seed into stdin.
+
+> Modules like `util` or `path` have to be imported into the current working environment as follow. These modules can be imported as follows.
+
+```js
+var util = require("util");
+var path = require("path");
+var rl = require("readline");
+```
+
+> `util` provides extra utilities like `util.log()` which allows us to print in a better fashion as we get the timestamp along with the output which is better at times than `console.log`. `path` allows us to do better path manipulations as it can be one of the things which can take up time.
+
+> The `readline` module has simplified the stdin stdout manipulation for some of the basic things we would have to do with text input and output.
+
+> Timers in Node are the first thing we encounter when it comes to async programming. Using timers we can set timeout for a certain amout of time and for each interval we can also allow the timer to execute a function. This way timers are extrememly helpful.
+
+```js
+
+var interval = setInterval(function(){
+    console.log("Half a second has passed \n");
+}, 500);
+
+setTimeout(function(){ 
+    clearInterval(interval);
+},3000); // Function which will timeout after 3 seconds 
+
+conosle.log("3 seconds have passed");
+```
+> The above piece of code will run with 6 lines of output saying that 0.5 seconds have passed.
 
 
 
