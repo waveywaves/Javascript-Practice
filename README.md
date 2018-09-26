@@ -206,6 +206,18 @@ fs.readdirSync("./"); // Synchronous Read
 fs.readdir("./",function(err, data){}); // Asynchronous Read
 ```
 
+### 13 > Streams in Node
+
+> Node Provides the implementation for stream which are basically IOStreams and take care of IOStreams of data in a way where the data is contiguous chunks of data where these chunks are of a very small size so as to not overload the memory.
+
+> The `fs` module provides the implementation for readable and writable streams and they can be used as follows.
+
+```js
+var fs = require("fs");
+var stream = fs.createReadStream("./chat.log","UTF-8");
+```
+Similarly like the above we can also create writable streams and write to the file through the stream.
+
 ### >> JS DEEP DIVE NOTES
 
 #### Types and Coersion
