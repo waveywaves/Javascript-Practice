@@ -196,6 +196,67 @@ child_process.spawn()
 
 Using the above method we should be able to exec and spawn child processes. Interestingly as a spawned child process has parts which are inherited by the EventEmitter, we can do certain stuff once we receive output to stdout or something along those lines. We can also write out own events on the EventEmitter to perform certain tasks.
 
+### 12> File System Manipulation in Node
+
+> Node provides us funcitonalities to do asyc reads and writes using streams on stdin and stdout. To do all this there are functions which we can use, present in the `fs` module.
+
+```js
+fs = require("fs")
+fs.readdirSync("./"); // Synchronous Read
+fs.readdir("./",function(err, data){}); // Asynchronous Read
+```
+
+### >> JS DEEP DIVE NOTES
+
+#### Types and Coersion
+
+> Primitive Types which we ar going to look at are `function` and null. Function is technically an object (First Class Citizen in Javascript). 
+
+> `null` signifies that there is no value. If a value cannot be defined by anything it returns null. But, `typeof null` is an object but why ? Brendan, the creator of JS came up and told that it's a bug.
+
+> `NaN` is a special value for a number. When a math operation is not valid, it returns `NaN`. While doing Math, Javascript tries to change all the values to a string and if that is not being done, it would return `NaN`. `NaN` is not equal to itself.
+
+> Native Objects are actually Native Functions.
+
+> Coercion is used to define the type of the variable without actually telling JS about it. Explicit Coercion happens when a string changes to a number when doing a certain operation. Implicit is when you are defining the var. 
+
+> Depending on the overloading, JS tells whether to convert it to change an operation to string on number. `""` converted to a number would be converted to 0; 
+
+> `==` allows coercion, `===` doesn't allow coercion.
+
+#### Scopes and Closures
+
+> Javascript has function scope only*
+
+> Javascript has first level of compilation and has lexical scope.
+
+> Only with lexical scope we are able to define variables as `bam="foo"`.
+
+> `'use strict'` to be strict and not allow any unnecessary changes.
+
+> Using dynamic scoping we can define funcitonas ahead of its time. 
+
+> When we do `var foo = 10 ; var foo = 20 ;` JS completely ignores the second var and just overwrite variable.
+
+> Block Scoping is done by adding `let` to the variable. `var` is more important tha `let`.
+
+#### Hoisting
+
+> During compile time, some variables or functions are hoisted to be able to define functions easier. Function expressions are used to avoid collisions, side effects etc. Function declarations are used to have functions declared to be used whenever possible.
+
+> Variables assigned to function expressions can be hoisted, `let` cannot be hoisted.
+
+#### Closure
+
+> `Function Call Context`, When a function remembers it's lexical scope. Most callbacks are using closures.
+
+> We can use Block Scoping and `let` to create variables or functions local to the scope.
+
+#### Object Oriented Javascript
+
+> `this` refers to current execution context.
+
+> `call`, `apply`, `bind` are used with functions.
 
 ## Things to Cover
 #### Closures [1](https://medium.com/dailyjs/how-i-automated-my-job-with-node-js-94bf4e423017)
@@ -203,3 +264,4 @@ Using the above method we should be able to exec and spawn child processes. Inte
 #### React+socket.io [1](https://medium.com/dailyjs/combining-react-with-socket-io-for-real-time-goodness-d26168429a34)
 #### XSS [1](https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0), [2](https://medium.com/@taylorotwell/js-frameworks-server-side-rendering-and-xss-722805009892), [3](https://medium.com/@marin_m/how-i-found-a-5-000-google-maps-xss-by-fiddling-with-protobuf-963ee0d9caff)
 #### Security Concepts [Introduction](https://medium.freecodecamp.org/a-quick-introduction-to-web-security-f90beaf4dd41)
+#### Streams in NodeJS [1](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93)
