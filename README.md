@@ -228,6 +228,119 @@ Similarly like the above we can also create writable streams and write to the fi
 
 > It allows us to be really flexible in creating the webframeworks which we need to.
 
+### 15> ReactJS Typescript Crash Course
+
+###### [Overview of Functional Programming in Javascript - 1](https://medium.com/@agm1984/an-overview-of-functional-programming-in-javascript-and-react-part-one-10d75b509e9e)
+
+> ReactJS is a Frontend Web Framework created and open sourced by Facebook. Interestingly it is known to be using Functional Programming paradigms. In Javascript Functions are first-class citizens as we all know and Objects in Javascript are referenced to a single source of truth.
+
+> Redux embodies unidirectional flow and immutability. In Javascript nothing in current execution content is refers to an object anymore. The execution context in Javascript is usually a function being executed. 
+
+> React components are usually given as follows and has a must-have `render()` function which returns the html.
+
+```js
+class Hello extends React.Component {
+    render(){
+        return (
+            <div id="">
+                <h1>Hello World</h1>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(
+    <Hello />,
+    document.getElementById('react-container')
+)
+```
+> Stateless functional components are made as follows.
+
+```js
+
+const Stateless = () => (
+  <div>
+    <h2>
+      Stateless component
+    </h2>
+  </div>
+)
+
+
+class App extends React.Component {
+  public render() {
+    return (
+      <div className="App">
+      <Stateless />
+      </div>
+    );
+  }
+}
+
+```
+> In typescript, in case one has to pass props to a particular JSX class they would have to define the Props interface in the following fashion and pass it to the Component as follows as this is necessary for static type checking.
+
+```js
+
+interface IPassedProps extends React.Props<any>{
+    firstName: string;
+}
+
+class PropsComponent extends React.Component<IPassedProps, any> {
+    public render(){
+      return (
+        <div>
+          <h3>Hello {this.props.firstName}</h3>
+        </div>
+      )
+    }
+  }
+
+class App extends React.Component {
+  public render() {
+    return (
+      <div className="App">
+      <PropsComponent firstName="Vibhav" />
+      </div>
+    );
+  }
+}
+
+```
+
+> To make components stateful, we have to add a constructor which will be able to store the state and then a function which will contain the `this.setState()` function. Then this function will be called when an event will be passed to it and then the state would be successfully changed only if the function is bound to the current running context. The following is a simple React Checkbox implementation with the state taken as the boolean value to keep the checkbox ticked or not.
+
+```js
+import * as React from "react";
+
+class StateComponent extends React.Component<any,any>{
+    
+    constructor(props: any){
+        super(props);
+        this.state = {
+            checked : this.props.defaultChecked
+        }
+        this.handleCheck = this.handleCheck.bind(this);
+    }
+
+    public handleCheck(event: any) {
+        this.setState({
+            checked: !this.state.checked
+        })
+    }
+      
+    
+    public render(){
+        return(
+            <div>
+                <input type="checkbox" onChange={this.handleCheck}/>
+            </div>
+        )
+    }
+}
+
+export default StateComponent;
+```
 
 ### >> JS DEEP DIVE NOTES
 
@@ -282,9 +395,11 @@ Similarly like the above we can also create writable streams and write to the fi
 > `call`, `apply`, `bind` are used with functions.
 
 ## Things to Cover
-#### Closures [1](https://medium.com/dailyjs/how-i-automated-my-job-with-node-js-94bf4e423017)
-#### DOM [1](https://medium.com/re-dom/master-the-dom-bc1a2a06089b)
-#### React+socket.io [1](https://medium.com/dailyjs/combining-react-with-socket-io-for-real-time-goodness-d26168429a34)
-#### XSS [1](https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0), [2](https://medium.com/@taylorotwell/js-frameworks-server-side-rendering-and-xss-722805009892), [3](https://medium.com/@marin_m/how-i-found-a-5-000-google-maps-xss-by-fiddling-with-protobuf-963ee0d9caff)
-#### Security Concepts [Introduction](https://medium.freecodecamp.org/a-quick-introduction-to-web-security-f90beaf4dd41)
-#### Streams in NodeJS [1](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93)
+###### Closures [1](https://medium.com/dailyjs/how-i-automated-my-job-with-node-js-94bf4e423017)
+###### DOM [1](https://medium.com/re-dom/master-the-dom-bc1a2a06089b)
+###### React [React+socket.io](https://medium.com/dailyjs/combining-react-with-socket-io-for-real-time-goodness-d26168429a34), [setState](https://medium.com/@agm1984/reacts-setstate-is-a-special-function-and-it-helps-with-asynchronous-concurrency-669eddbe3dd1)
+###### XSS [1](https://medium.com/node-security/the-most-common-xss-vulnerability-in-react-js-applications-2bdffbcc1fa0), [2](https://medium.com/@taylorotwell/js-frameworks-server-side-rendering-and-xss-722805009892), [3](https://medium.com/@marin_m/how-i-found-a-5-000-google-maps-xss-by-fiddling-with-protobuf-963ee0d9caff)
+###### Security Concepts [Introduction](https://medium.freecodecamp.org/a-quick-introduction-to-web-security-f90beaf4dd41)
+###### Streams in NodeJS [1](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93)
+###### Performance [Leaks in Javascript Code](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)
+###### Functional Programming [Referential Transparency](https://medium.com/@olxc/referential-transparency-93352c2dd713)
