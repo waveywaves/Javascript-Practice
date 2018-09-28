@@ -206,7 +206,7 @@ fs.readdirSync("./"); // Synchronous Read
 fs.readdir("./",function(err, data){}); // Asynchronous Read
 ```
 
-### 13 > Streams in Node
+### 13> Streams in Node
 
 > Node Provides the implementation for stream which are basically IOStreams and take care of IOStreams of data in a way where the data is contiguous chunks of data where these chunks are of a very small size so as to not overload the memory.
 
@@ -217,6 +217,17 @@ var fs = require("fs");
 var stream = fs.createReadStream("./chat.log","UTF-8");
 ```
 Similarly like the above we can also create writable streams and write to the file through the stream.
+
+### 14> HTTP(S) in Node
+
+> Node provides us with the `http` and `https` module which allow us to do programmatically work with http(s). 
+
+> We can pass `options` to the requests which we are sending and it would contain all the necessary things required for making a request. We would be able to pass these options for the request that we are making and receive data accordingly.
+
+> The `createServer` Function would allow us to create a Server using node and we can use take care of the responses as we want and set status codes and the type of responses which we are passing through.
+
+> It allows us to be really flexible in creating the webframeworks which we need to.
+
 
 ### >> JS DEEP DIVE NOTES
 
